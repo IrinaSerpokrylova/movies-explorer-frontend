@@ -1,0 +1,153 @@
+.about-me {
+  padding: 110px 70px 0;
+}
+
+.about-me__content {
+  margin: 66px 0 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.about-me__name {
+  margin: 0;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 58px; /* 116% */
+  letter-spacing: -2px;
+}
+
+.about-me__description {
+  margin: 19px 0 0;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.about-me__profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.about-me__bio {
+  max-width: 600px;
+  margin: 25px 0 0;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.about-me__link {
+  color: #ffffff;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
+}
+
+.about-me__link:hover {
+  transition: opacity 0.2s;
+  opacity: 0.7;
+}
+
+.about-me__pic {
+  margin-left: 49px;
+  object-fit: cover;
+  width: 270px;
+  height: 327px;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 896px) {
+  .about-me {
+    padding: 90px 50px 0;
+  }
+
+  /* .about-me__content {
+    margin: 66px 0 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  } */
+
+  .about-me__name {
+    font-size: 40px;
+    line-height: 40px; /* 116% */
+    letter-spacing: -2px;
+  }
+
+  .about-me__description {
+    margin: 16px 0 0;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .about-me__profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .about-me__bio {
+    margin: 20px 0 0;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .about-me__pic {
+    width: 255px;
+    height: 307px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .about-me {
+    padding: 71px 14px 0;
+  }
+
+  .about-me__content {
+    margin: 60px 0 0;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .about-me__profile {
+    max-width: 292px;
+    margin: 40px 0 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-me__name {
+    font-size: 30px;
+    line-height: normal;
+    letter-spacing: -1.2px;
+  }
+
+  .about-me__description {
+    margin: 20px 0 0;
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .about-me__bio {
+    margin: 20px 0 0;
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .about-me__pic {
+    width: 292px;
+    height: 352px;
+    margin: 0;
+  }
+
+  .about-me__link {
+    margin-top: 40px;
+  }
+}

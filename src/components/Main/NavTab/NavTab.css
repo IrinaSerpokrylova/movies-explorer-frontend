@@ -1,0 +1,86 @@
+.navtab {
+  /* background: #073042; */
+  padding: 18px 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navtab__links {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.navtab__login-link {
+  color: #000000;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  margin-left: 30px;
+  width: 76px;
+  height: 32px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px;
+  text-align: center;
+  border-radius: 3px;
+  background: #3ddc84;
+}
+
+.navtab__login-link:hover {
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.navtab__registration-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+.navtab__registration-link:hover {
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.navtab__logo {
+  width: 38px;
+  height: 38px;
+}
+
+.navtab__logo:hover {
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+@media screen and (max-width: 896px) {
+  .navtab {
+    padding: 18px 30px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .navtab {
+    padding: 18px 14px;
+  }
+
+  .navtab__registration-link {
+    font-size: 10px;
+    line-height: 26px;
+  }
+
+  .navtab__login-link {
+    margin-left: 14px;
+    width: 54px;
+    height: 26px;
+    font-size: 10px;
+    line-height: 26px;
+  }
+}

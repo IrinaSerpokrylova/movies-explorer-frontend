@@ -1,0 +1,171 @@
+.movies-search-form {
+  padding: 70px 0 0;
+  margin: 0 70px 48px;
+  /* margin-bottom: 48px; */
+}
+
+.movies-search-form__form {
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 9px;
+  border-bottom: #424242 solid 1px;
+}
+
+.movies-search-form__input {
+  width: 100%;
+  background-color: #202020;
+  border: none;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  color: #8b8b8b;
+  line-height: normal;
+}
+
+.movies-search-form__input:focus {
+  outline: none;
+}
+
+.movies-search-form__input:focus  {
+  background: radial-gradient(at 10% 60%, rgba(139, 139, 139, 0.3), #202020, #202020);
+}
+
+.movies-search-form__submit-button {
+  flex-shrink: 0;
+  cursor: pointer;
+  background-color: #4285f4;
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 100%;
+  background-image: url('../../../images/right-arrow-min.svg');
+  background-repeat: no-repeat;
+  background-position: 52% 50%;
+}
+
+.movies-search-form__submit-button:hover {
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.movies-search-form__error {
+}
+
+.movies-search-form__thumbler {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.movies-search-form__checkbox-container {
+  position: relative;
+  display: inline-block;
+}
+
+.movies-search-form__checkbox {
+  opacity: 0;
+}
+
+.movies-search-form__slider {
+  display: inline-block;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.movies-search-form__slider:before {
+  width: 36px;
+  height: 20px;
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 0;
+  background-color: #343434;
+  transition: 0.4s;
+  border-radius: 20px;
+}
+
+.movies-search-form__slider::after {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  content: '';
+  left: 2px;
+  top: 2px;
+  background-color: #a0a0a0;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.movies-search-form__checkbox:checked + .movies-search-form__slider:before {
+  background-color: #2be080;
+}
+
+.movies-search-form__checkbox:checked + .movies-search-form__slider:after {
+  background-color: #ffffff;
+  left: 18px;
+}
+
+.movies-search-form__checkbox-title {
+  margin: 0 0 0 37px;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 13px;
+}
+
+@media screen and (max-width: 976px) {
+  .movies-search-form {
+    padding: 76px 0 60px;
+    margin: 0 70px 48px;
+  }
+
+  .movies-search-form__thumbler {
+    flex-direction: row-reverse;
+    justify-content: end;
+  }
+
+  .movies-search-form__checkbox-container {
+    width: 36px;
+  }
+
+  .movies-search-form__checkbox-title {
+    margin: 0 16px 0 0;
+  }
+}
+
+@media screen and (max-width: 896px) {
+  .movies-search-form {
+    margin: 0 30px 48px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .movies-search-form {
+    margin: 0 10px 0;
+    padding: 84px 0 50px;
+  }
+
+  .movies-search-form__form {
+    margin-bottom: 40px;
+
+    padding-bottom: 9px;
+  }
+
+  .movies-search-form__thumbler {
+    justify-content: center;
+  }
+
+  .movies-search-form__input {
+    font-size: 18px;
+  }
+
+  .movies-search-form__checkbox-title {
+    margin: 0 11px 0 0;
+    font-size: 11px;
+  }
+}
