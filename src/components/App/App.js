@@ -17,8 +17,10 @@ function App() {
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Main />} />
 
-          <Route path="movies" element={<Movies />} />
-          <Route path="saved-movies" element={<SavedMovies />} />
+          
+            <Route path="movies" element={<main class="main"><Movies /></main>} />
+          
+          <Route path="saved-movies" element={<main class="main"><SavedMovies /></main>} />
         </Route>
         <Route path="/profile" element={<ProfileLayout />}>
           <Route index element={<Profile />} />

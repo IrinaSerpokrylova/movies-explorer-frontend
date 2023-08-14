@@ -10,10 +10,9 @@ function Header() {
   // const authorized = false;
 
   return (
-    <header
-      className={`${location.pathname === '/' ? 'header_type_main' : 'header' }`}
+    <header className='header'
     >
-      {authorized ? <Navigation /> : <NavTab />}
+      <div className={`${location.pathname === '/' ? 'header__main-container' : 'header__container' }`}>{authorized ? <Navigation /> : <NavTab />}</div>
     </header>
   );
 }

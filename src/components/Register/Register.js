@@ -17,11 +17,12 @@ function Register() {
           type="text"
           className="register__form-input"
           name="name"
+          placeholder='Имя'
           id="name"
           required
           minLength="2"
           maxLength="20"
-        />
+          />
         <span className="register__form-error"></span>
         <label htmlFor="email" className="register__form-label">
           E-mail
@@ -30,10 +31,11 @@ function Register() {
           type="email"
           pattern="/^[^\s@]+@[^\s@]+\.[^\s@]+$/"
           className="register__form-input"
+          placeholder='E-mail'
           name="email"
           id="email"
           required
-        />
+          />
         <span className="register__form-error"></span>
         <label htmlFor="password" className="register__form-label">
           Пароль
@@ -41,6 +43,7 @@ function Register() {
         <input
           type="password"
           id="password"
+          placeholder='Пароль'
           className="register__form-input register__form-input_type_error"
           required
         />

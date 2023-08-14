@@ -16,11 +16,12 @@ function Login() {
         </label>
         <input
           type="email"
+          placeholder='E-mail'
           className="login__form-input"
           name="email"
           id="email"
           required
-        />
+          />
         <span className="login__form-error"></span>
         <label htmlFor="password" className="login__form-label">
           Пароль
@@ -28,6 +29,7 @@ function Login() {
         <input
           type="password"
           id="password"
+          placeholder='Пароль'
           className="login__form-input login__form-input_type_error"
           required
         />
@@ -42,10 +44,11 @@ function Login() {
           Регистрация
         </Link>
       </div>
-      <ErrorPopup
+      {/* раскомменитруйте код ниже, если нужно увидеть как отображаются ошибки */}
+      {/* <ErrorPopup
         errorMessage={`При авторизации произошла ошибка. Токен не передан или передан не в
           том формате.`}
-      />
+      /> */}
     </div>
   );
 }

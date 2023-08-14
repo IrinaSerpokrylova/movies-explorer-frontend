@@ -53,7 +53,8 @@ function Profile() {
       <Link to="/" className="profile__signout">
         Выйти из аккаунта
       </Link>
-      <ErrorPopup errorMessage={`При обновлении профиля произошла ошибка.`} />
+      {/* раскомменитруйте к ниже, чтобы увидеть как отображаются ошибки */}
+      {/* <ErrorPopup errorMessage={`При обновлении профиля произошла ошибка.`} /> */}
     </section>
   );
 }

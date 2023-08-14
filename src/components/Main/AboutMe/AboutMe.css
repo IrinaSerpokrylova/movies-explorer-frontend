@@ -2,6 +2,17 @@
   padding: 110px 70px 0;
 }
 
+.about-me__title {
+border-bottom: 1px solid #dadada;
+padding-bottom: 23px;
+margin: 0;
+font-size: 22px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+letter-spacing: -0.88px;
+}
+
 .about-me__content {
   margin: 66px 0 0;
   display: flex;

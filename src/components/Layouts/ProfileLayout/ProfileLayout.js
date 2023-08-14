@@ -3,10 +3,12 @@ import Header from '../../Header/Header';
 
 function ProfileLayout() {
   return (
-    <div className='profile-layout'>
+    <div className='layout-profile'>
       <Header />
 
-      <Outlet />
+      <main class="main">
+        <Outlet />
+      </main>
     </div>
   );
 }

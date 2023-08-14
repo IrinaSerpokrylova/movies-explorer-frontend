@@ -11,7 +11,7 @@ function Portfolio() {
           className="portfolio__link"
         >
           <p className="portfolio__project-name">Статичный сайт</p>
-          <p className="portfloio__arrow">&#8599;</p>
+          <p className="portfolio__arrow">&#8599;</p>
         </a>
         <a
           target="_blank"
@@ -19,7 +19,7 @@ function Portfolio() {
           className="portfolio__link"
         >
           <p className="portfolio__project-name">Адаптивный сайт</p>
-          <p className="portfloio__arrow">&#8599;</p>
+          <p className="portfolio__arrow">&#8599;</p>
         </a>
         <a
           target="_blank"
@@ -27,7 +27,7 @@ function Portfolio() {
           className="portfolio__link"
         >
           <p className="portfolio__project-name">Одностраничное приложение</p>
-          <p className="portfloio__arrow">&#8599;</p>
+          <p className="portfolio__arrow">&#8599;</p>
         </a>
       </ul>
     </section>

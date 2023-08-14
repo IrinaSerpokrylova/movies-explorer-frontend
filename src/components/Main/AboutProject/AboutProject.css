@@ -1,6 +1,16 @@
 .about-project {
   margin: 111px 70px 111px;
 }
+.about-project__title {
+  border-bottom: 1px solid #dadada;
+  padding-bottom: 23px;
+  margin: 0;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.88px;
+}
 
 .about-project__description {
   margin: 70px 0 0;
