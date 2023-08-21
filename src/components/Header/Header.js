@@ -3,16 +3,20 @@ import { useLocation } from 'react-router-dom';
 import Navigation from '../Navigation/Navigation';
 import NavTab from '../Main/NavTab/NavTab';
 
-function Header() {
+function Header({ isLoggedIn }) {
   let location = useLocation();
-  // заглушка для разных состояний авторизации (header)
-  const authorized = true;
-  // const authorized = false;
 
   return (
-    <header className='header'
-    >
-      <div className={`${location.pathname === '/' ? 'header__main-container' : 'header__container' }`}>{authorized ? <Navigation /> : <NavTab />}</div>
+    <header className="header">
+      <div
+        className={`${
+          location.pathname === '/'
+            ? 'header__main-container'
+            : 'header__container'
+        }`}
+      >
+        {isLoggedIn ? <Navigation /> : <NavTab />}
+      </div>
     </header>
   );
 }

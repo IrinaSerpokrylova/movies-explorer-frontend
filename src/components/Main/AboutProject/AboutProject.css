@@ -24,10 +24,6 @@
   list-style: none;
 }
 
-/* .about-project__element:last-child {
-  margin-left: 40px;
-} */
-
 .about-project__subtitle {
   margin: 0;
   font-size: 20px;
@@ -77,7 +73,6 @@
 }
 
 .about-project__length_type_backend {
-  /* max-width: 228px; */
   color: #000;
 }
 

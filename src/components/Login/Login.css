@@ -81,6 +81,15 @@
   opacity: 0.8;
 }
 
+.login__button_disabled {
+  color: #c2c2c2;
+  background-color: #f8f8f8;
+}
+
+.login__button_disabled:hover {
+  opacity: 1;
+}
+
 .login__registration-block {
   margin-top: 16px;
   display: flex;

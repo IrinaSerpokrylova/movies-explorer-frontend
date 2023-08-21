@@ -3,14 +3,14 @@
 }
 
 .about-me__title {
-border-bottom: 1px solid #dadada;
-padding-bottom: 23px;
-margin: 0;
-font-size: 22px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-letter-spacing: -0.88px;
+  border-bottom: 1px solid #dadada;
+  padding-bottom: 23px;
+  margin: 0;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.88px;
 }
 
 .about-me__content {
@@ -78,13 +78,6 @@ letter-spacing: -0.88px;
   .about-me {
     padding: 90px 50px 0;
   }
-
-  /* .about-me__content {
-    margin: 66px 0 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  } */
 
   .about-me__name {
     font-size: 40px;

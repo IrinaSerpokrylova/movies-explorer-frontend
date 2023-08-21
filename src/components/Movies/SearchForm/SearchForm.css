@@ -1,11 +1,10 @@
 .movies-search-form {
   padding: 70px 0 0;
   margin: 0 70px 48px;
-  /* margin-bottom: 48px; */
 }
 
 .movies-search-form__form {
-  margin-bottom: 32px;
+  margin-bottom: 17px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -28,8 +27,13 @@
   outline: none;
 }
 
-.movies-search-form__input:focus  {
-  background: radial-gradient(at 10% 60%, rgba(139, 139, 139, 0.3), #202020, #202020);
+.movies-search-form__input:focus {
+  background: radial-gradient(
+    at 10% 60%,
+    rgba(139, 139, 139, 0.3),
+    #202020,
+    #202020
+  );
 }
 
 .movies-search-form__submit-button {
@@ -51,6 +55,13 @@
 }
 
 .movies-search-form__error {
+  display: inline-block;
+  margin-bottom: 15px;
+  color: #ee3465;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .movies-search-form__thumbler {
@@ -151,9 +162,15 @@
   }
 
   .movies-search-form__form {
-    margin-bottom: 40px;
+    margin: 0 0 15px;
+
+    width: 100%;
 
     padding-bottom: 9px;
+  }
+
+  .movies-search-form__error {
+    margin-bottom: 25px;
   }
 
   .movies-search-form__thumbler {
