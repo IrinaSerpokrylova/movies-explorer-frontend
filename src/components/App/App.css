@@ -1,0 +1,28 @@
+#root {
+  background: #202020;
+}
+
+.page {
+  margin: 0 auto;
+  max-width: 1280px;
+  min-width: 320px;
+  font-family: Inter, 'Times New Roman', Verdana, Tahoma, Arial, sans-serif;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* .main {
+  width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+@media screen and (max-width: 896px) {
+}
+
+@media screen and (max-width: 576px) {
+}

@@ -1,0 +1,161 @@
+.profile {
+  margin: 74px 0 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 410px;
+}
+.profile__form {
+  width: 100%;
+  margin: 123px 0 0;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+.profile__form-item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 15px 0 0;
+  padding-bottom: 16px;
+}
+
+.profile__form-item:first-child {
+  border-bottom: 1px solid #424242;
+  margin: 0;
+}
+
+.profile__greetings {
+  margin: 0;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.profile__label {
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  flex-shrink: 0;
+}
+
+.profile__input {
+  background-color: #202020;
+  width: 100%;
+  color: #fff;
+  text-align: right;
+  border: none;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.profile__input:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.profile__input-error {
+  margin: 10px 0 0;
+  color: #ee3465;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: none;
+}
+
+.profile__input-error_active {
+  display: block;
+}
+
+.profile__edit-button {
+  margin: 201px 0 0;
+  color: #ffffff;
+  border: none;
+  background-color: #202020;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+  transition: 0.2ms;
+}
+
+.profile__edit-button:hover {
+  opacity: 0.8;
+}
+
+.profile__save-button {
+  display: none;
+  padding: 0;
+  height: 45px;
+  border-radius: 3px;
+  background-color: #4285f4;
+  margin-top: 223px;
+  border: none;
+  color: #ffffff;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.profile__save-button_enabled {
+  display: block;
+}
+
+.profile__signout {
+  margin: 16px 0 0;
+  text-decoration: none;
+  color: #ee3465;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.profile__signout:hover {
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 896px) {
+  .profile {
+    margin: 233px 0 269px;
+  }
+
+  .profile__form {
+    margin: 96px 0 0;
+  }
+
+  .profile__edit-button {
+    margin: 191px 0 0;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .profile {
+    margin: 70px 0 40px;
+    width: 260px;
+  }
+
+  .profile__edit-button {
+    margin: 361px 0 0;
+    font-size: 12px;
+  }
+  .profile__signout {
+    font-size: 12px;
+  }
+
+  .profile__form {
+    margin: 80px 0 0;
+  }
+
+  .profile__save-button {
+    font-size: 12px;
+  }
+}

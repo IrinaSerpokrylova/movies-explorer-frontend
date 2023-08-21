@@ -1,0 +1,160 @@
+.login {
+  margin: 0 0 70px;
+  width: 396px;
+}
+
+.login__logo-container {
+  margin: 70px 0 0;
+}
+
+.login__title {
+  margin: 40px 0 0;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.login__form {
+  width: 100%;
+  margin: 30px 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.login__form-label {
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #8b8b8b;
+  margin-top: 10px;
+}
+
+.login__form-error {
+  margin: 10px 0 0;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #ee3465;
+}
+
+.login__form-input {
+  color: #ffffff;
+  margin: 10px 0 0;
+  height: 46px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2f2f2f;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.login__form-input:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.login__form-input_type_error {
+  color: #ee3465;
+}
+
+.login__button {
+  cursor: pointer;
+  color: #ffffff;
+  border: none;
+  margin-top: 153px;
+  height: 45px;
+  background-color: #4285f4;
+  border-radius: 3px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  transition: 0.2ms;
+}
+
+.login__button:hover {
+  opacity: 0.8;
+}
+
+.login__registration-block {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 6px;
+}
+
+.login__registration-link {
+  text-decoration: none;
+  color: #4285f4;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  transition: 0.2ms;
+}
+
+.login__registration-link:hover {
+  opacity: 0.7;
+}
+
+.login__registration-text {
+  margin: 0;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #8b8b8b;
+}
+
+@media screen and (max-width: 896px) {
+  .login {
+    margin: 0 0 232px;
+  }
+
+  .login__logo-container {
+    margin: 232px 0 0;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .login {
+    margin: 0 0 30px;
+    width: 260px;
+  }
+  .login__form {
+    margin: 70px 0 0;
+  }
+
+  .login__logo-container {
+    margin: 56px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .login__button {
+    margin-top: 241px;
+    font-size: 12px;
+  }
+
+  .login__title {
+    margin: 50px 0 0;
+  }
+  .login__registration-block {
+    margin-top: 14px;
+    gap: 7px;
+  }
+  .login__registration-link {
+    font-size: 12px;
+  }
+
+  .login__registration-text {
+    font-size: 12px;
+  }
+}
