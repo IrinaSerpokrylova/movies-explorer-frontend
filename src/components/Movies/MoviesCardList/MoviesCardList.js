@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import MoviesCard from '../MoviesCard/MoviesCard';
 import { useLocation } from 'react-router-dom';
+import { CARDS_ADD, CARDS_DEFAULT, DEVICE_WIDTH } from '../../../utils/const';
 
 function MoviesCardList({
   filteredMovies,
@@ -29,16 +30,16 @@ function MoviesCardList({
   };
 
   const getAdditional = () => {
-    if (width >= 1200) return 4;
-    if (width >= 976) return 3;
-    if (width >= 320) return 2;
+    if (width >= DEVICE_WIDTH.laptop) return CARDS_ADD.laptop;
+    if (width >= DEVICE_WIDTH.tablet) return CARDS_ADD.tablet;
+    if (width >= DEVICE_WIDTH.phone) return CARDS_ADD.phone;
   };
 
   const getLimit = () => {
-    if (width >= 1200) return 16;
-    if (width >= 976) return 12;
-    if (width >= 736) return 8;
-    if (width >= 320) return 5;
+    if (width >= DEVICE_WIDTH.laptop) return CARDS_DEFAULT.laptop;
+    if (width >= DEVICE_WIDTH.tablet) return CARDS_DEFAULT.tablet;
+    if (width >= DEVICE_WIDTH.miniTablet) return CARDS_DEFAULT.miniTablet;
+    if (width >= DEVICE_WIDTH.phone) return CARDS_DEFAULT.phone;
   };
 
   // хук управления стейтом ширины
@@ -56,9 +57,15 @@ function MoviesCardList({
     }
   }, [window.innerWidth]);
 
+  useEffect(() => {
+    if (location.pathname === '/movies') {
+      setLimit(getLimit());
+    }
+  }, [filteredMovies]);
+
   return (
-    <div className="movies-card-list">
-      <div className="movies-card-list__container">
+    <div className='movies-card-list'>
+      <div className='movies-card-list__container'>
         {renderedMovies.slice(0, limit).map((item) => (
           <MoviesCard
             movie={item}
@@ -73,7 +80,7 @@ function MoviesCardList({
       {location.pathname === '/movies' ? (
         <button
           onClick={loadMore}
-          className="movies-card-list__button"
+          className='movies-card-list__button'
           style={{
             visibility: limit < renderedMovies.length ? 'visible' : 'hidden',
           }}

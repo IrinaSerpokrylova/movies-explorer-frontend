@@ -12,13 +12,18 @@ function Movies({
   onSaveMovie,
   onDeleteMovie,
   preloaderState,
+  formState,
 }) {
   const moviesListLength = filteredMovies.length === 0;
   const checkMovies = localStorage.getItem('allMovies');
 
   return (
     <section className='movies'>
-      <SearchForm onSearch={onSearch} onCheckbox={onCheckbox} />
+      <SearchForm
+        onSearch={onSearch}
+        onCheckbox={onCheckbox}
+        formState={formState}
+      />
       {preloaderState ? (
         <Preloader />
       ) : !moviesListLength ? (

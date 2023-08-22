@@ -9,13 +9,18 @@ function SavedMovies({
   savedMovies,
   onSaveMovie,
   onDeleteMovie,
+  formState,
 }) {
   const moviesListLength = savedMovies.length === 0;
   const check = filteredMovies.length === 0;
 
   return (
     <section className='saved-movies'>
-      <SearchForm onSearch={onSearch} onCheckbox={onCheckbox} />
+      <SearchForm
+        onSearch={onSearch}
+        onCheckbox={onCheckbox}
+        formState={formState}
+      />
       {!moviesListLength ? (
         <MoviesCardList
           filteredMovies={filteredMovies}

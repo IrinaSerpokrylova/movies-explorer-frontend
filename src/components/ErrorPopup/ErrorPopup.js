@@ -1,34 +1,13 @@
+import { ERRORS, INVALID_STATUSES, SUCCESS_STATUSES } from '../../utils/const';
+
 function ErrorPopup({ statusCode, onClose, opened, statusInfo }) {
-  const errores = {
-    200: `Данные успешно отправлены`,
-    409: `Пользователь с таким email уже существует`,
-    404: `Фильм с указанным _id не найден`,
-    500: `На сервере произошла ошибка`,
-    403: `Недостаточно прав для удаления фильма`,
-    401: `Вы ввели неправильный логин или пароль`,
-    400: `Переданы некорректные данные`,
-    429: `Слишком много запросов`,
-  };
-
-  const successStatuses = {
-    updateProfile: `Профиль успешно обновлен`,
-    saveMovie: `Фильм успешно сохранен`,
-  };
-
-  const invalidStatuses = {
-    updateProfile: `При обновлении профиля произошла ошибка`,
-    saveMovie: `Переданы некорректные данные при создании фильма`,
-    createUser: `Переданы некорректные данные при создании пользователя`,
-    deleteMovie: `Передан невалидный id`,
-  };
-
   const handleMesage = () => {
     if (statusCode === 400) {
-      return invalidStatuses[statusInfo];
+      return INVALID_STATUSES[statusInfo];
     } else if (statusCode === 200) {
-      return successStatuses[statusInfo];
+      return SUCCESS_STATUSES[statusInfo];
     } else {
-      return errores[statusCode];
+      return ERRORS[statusCode];
     }
   };
 

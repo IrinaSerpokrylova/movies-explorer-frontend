@@ -87,10 +87,12 @@ function SearchForm({ onSearch, onCheckbox, formState }) {
           onChange={onChangeInput}
           name='movie'
           autoComplete='off'
+          disabled={formState}
         />
         <button
           className='movies-search-form__submit-button'
           type='submit'
+          disabled={formState}
         ></button>
       </form>
       <span className='movies-search-form__error'>{error}</span>
@@ -102,6 +104,7 @@ function SearchForm({ onSearch, onCheckbox, formState }) {
             type='checkbox'
             checked={checkbox}
             onChange={onChangeCheckbox}
+            disabled={formState}
           />
           <span className='movies-search-form__slider'></span>
         </div>

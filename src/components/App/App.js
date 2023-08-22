@@ -1,4 +1,10 @@
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import {
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
 import './App.css';
 import * as auth from '../../utils/Auth.js';
 import Main from '../Main/Main.js';
@@ -16,6 +22,7 @@ import api from '../../utils/MainApi';
 import moviesApi from '../../utils/MoviesApi';
 import ErrorPopup from '../ErrorPopup/ErrorPopup';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import { SHORT_FILM_LENGTH } from '../../utils/const';
 
 function App() {
   const navigate = useNavigate();
@@ -166,6 +173,7 @@ function App() {
   }, []);
 
   function getFilteredMovies(request, thumblerState) {
+    setFormState(true);
     if (movies.length === 0) {
       setPreloaderState(true);
       moviesApi.getMovies().then((movies) => {
@@ -175,7 +183,8 @@ function App() {
             .concat(item.nameEN.toLowerCase());
           if (thumblerState) {
             return (
-              namesSearch.includes(request.toLowerCase()) && item.duration < 41
+              namesSearch.includes(request.toLowerCase()) &&
+              item.duration <= SHORT_FILM_LENGTH
             );
           } else {
             return namesSearch.includes(request.toLowerCase());
@@ -198,7 +207,9 @@ function App() {
             .toLowerCase()
             .concat(item.nameEN.toLowerCase())
             .includes(request.toLowerCase()) &&
-          (thumblerState ? item.duration < 41 : item.duration > 0)
+          (thumblerState
+            ? item.duration <= SHORT_FILM_LENGTH
+            : item.duration > 0)
       );
       localStorage.setItem('filteredMovies', JSON.stringify(filteredMovies));
       localStorage.setItem('searchPhrase', JSON.stringify(request));
@@ -206,13 +217,16 @@ function App() {
       setFilteredMovies(requstedMovies);
       setPreloaderState(false);
     }
+    setFormState(false);
   }
 
   // отфильтровать короткие для всех
   function getShortMovies(thumblerState) {
     if (localStorage.getItem('searchPhrase')) {
       if (thumblerState) {
-        const shortMovies = filteredMovies.filter((item) => item.duration < 41);
+        const shortMovies = filteredMovies.filter(
+          (item) => item.duration <= SHORT_FILM_LENGTH
+        );
         localStorage.setItem('thumblerState', JSON.stringify(thumblerState));
 
         setFilteredMovies(shortMovies);
@@ -229,16 +243,20 @@ function App() {
 
   // отфильтровать сохраненные
   function getFilteredSavedMovies(searchPhraseSaved, thumblerStateSavedMovies) {
+    setFormState(true);
     const newFilteredMovies = savedMovies.filter(
       (item) =>
         item.nameRU
           .toLowerCase()
           .concat(item.nameEN.toLowerCase())
           .includes(searchPhraseSaved.toLowerCase()) &&
-        (thumblerStateSavedMovies ? item.duration < 41 : item.duration > 0)
+        (thumblerStateSavedMovies
+          ? item.duration <= SHORT_FILM_LENGTH
+          : item.duration > 0)
     );
 
     setFilteredSavedMovies(newFilteredMovies);
+    setFormState(false);
   }
 
   // отфильтровать короткие для сохраненных
@@ -255,7 +273,9 @@ function App() {
       localStorage.removeItem('searchPhraseSaved');
     } else {
       const filteredSavedMovies = savedMovies.filter((item) =>
-        thumblerStateSavedMovies ? item.duration < 41 : item.duration > 0
+        thumblerStateSavedMovies
+          ? item.duration <= SHORT_FILM_LENGTH
+          : item.duration > 0
       );
       setFilteredSavedMovies(filteredSavedMovies);
       localStorage.setItem(
@@ -306,8 +326,11 @@ function App() {
       .removeMovie(id)
       .then(() => {
         const newSavedMovies = savedMovies.filter((item) => item._id !== id);
+        const newFilteredSavedMovies = filteredSavedMovies.filter(
+          (item) => item._id !== id
+        );
         setSavedMovies(newSavedMovies);
-        setFilteredSavedMovies(newSavedMovies);
+        setFilteredSavedMovies(newFilteredSavedMovies);
       })
       .catch((err) => {
         setErrorState(true);
@@ -342,6 +365,7 @@ function App() {
                       onSaveMovie={handleSaveMovie}
                       onDeleteMovie={handleDeleteMovie}
                       preloaderState={preloaderState}
+                      formState={formState}
                     />
                   </main>
                 }
@@ -361,6 +385,7 @@ function App() {
                       onSaveMovie={handleSaveMovie}
                       onDeleteMovie={handleDeleteMovie}
                       preloaderState={preloaderState}
+                      formState={formState}
                     />
                   </main>
                 }
@@ -384,12 +409,22 @@ function App() {
           <Route path='*' element={<NotFound />} />
           <Route
             path='/sign-in'
-            element={<Login onAuth={handleLogin} formState={formState} />}
+            element={
+              isLoggedIn ? (
+                <Navigate to='/movies' replace />
+              ) : (
+                <Login onAuth={handleLogin} formState={formState} />
+              )
+            }
           />
           <Route
             path='/sign-up'
             element={
-              <Register onRegister={handleRegister} formState={formState} />
+              isLoggedIn ? (
+                <Navigate to='/movies' replace />
+              ) : (
+                <Register onRegister={handleRegister} formState={formState} />
+              )
             }
           />
         </Routes>
