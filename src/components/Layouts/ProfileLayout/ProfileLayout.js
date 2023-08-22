@@ -1,12 +1,12 @@
 import { Outlet } from 'react-router-dom';
 import Header from '../../Header/Header';
 
-function ProfileLayout() {
+function ProfileLayout(isLoggedIn) {
   return (
-    <div className='layout-profile'>
-      <Header />
+    <div className="layout-profile">
+      <Header isLoggedIn={isLoggedIn} />
 
-      <main class="main">
+      <main>
         <Outlet />
       </main>
     </div>

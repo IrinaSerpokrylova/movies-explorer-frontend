@@ -10,7 +10,6 @@
   margin: 123px 0 0;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
 }
 .profile__form-item {
   width: 100%;
@@ -61,12 +60,12 @@
 
 .profile__input-error {
   margin: 10px 0 0;
+  text-align: end;
   color: #ee3465;
   font-size: 10px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  display: none;
 }
 
 .profile__input-error_active {
@@ -88,6 +87,14 @@
 
 .profile__edit-button:hover {
   opacity: 0.8;
+}
+
+.profile__edit-button_disabled {
+  color: #c2c2c2;
+}
+
+.profile__edit-button_disabled:hover {
+  opacity: 1;
 }
 
 .profile__save-button {

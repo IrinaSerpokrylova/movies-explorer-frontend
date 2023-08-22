@@ -1,3 +1,13 @@
-.saved-movies {
-  margin-bottom: -26px;
+.saved-movies__error-message {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }

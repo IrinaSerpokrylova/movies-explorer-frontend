@@ -1,108 +1,95 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import MoviesCard from '../MoviesCard/MoviesCard';
-import coverPic0 from '../../../images/covers/pic__COLOR_pic.jpg';
-import coverPic1 from '../../../images/covers/pic__COLOR_pic-1.jpg';
-import coverPic2 from '../../../images/covers/pic__COLOR_pic-2.jpg';
-import coverPic3 from '../../../images/covers/pic__COLOR_pic-3.jpg';
-import coverPic4 from '../../../images/covers/pic__COLOR_pic-4.jpg';
-import coverPic5 from '../../../images/covers/pic__COLOR_pic-5.jpg';
-import coverPic6 from '../../../images/covers/pic__COLOR_pic-6.jpg';
-import coverPic7 from '../../../images/covers/pic__COLOR_pic-7.jpg';
-import coverPic8 from '../../../images/covers/pic__COLOR_pic-8.jpg';
-import coverPic9 from '../../../images/covers/pic__COLOR_pic-9.jpg';
-import coverPic10 from '../../../images/covers/pic__COLOR_pic-10.jpg';
-import coverPic11 from '../../../images/covers/pic__COLOR_pic-11.jpg';
-import coverPic12 from '../../../images/covers/pic__COLOR_pic-12.jpg';
-import coverPic13 from '../../../images/covers/pic__COLOR_pic-13.jpg';
-import coverPic14 from '../../../images/covers/pic__COLOR_pic-14.jpg';
-import coverPic15 from '../../../images/covers/pic__COLOR_pic-15.jpg';
+import { useLocation } from 'react-router-dom';
+import { CARDS_ADD, CARDS_DEFAULT, DEVICE_WIDTH } from '../../../utils/const';
 
-function MoviesCardList() {
+function MoviesCardList({
+  filteredMovies,
+  savedMovies,
+  onSaveMovie,
+  onDeleteMovie,
+}) {
+  const location = useLocation();
+
+  const savedMoviesNames = savedMovies.map((item) => {
+    return item.nameRU;
+  });
+
+  const renderedMovies =
+    location.pathname === '/movies' ? filteredMovies : savedMovies;
+
+  // управление количеством карточек
+  // стейт ширины
+  const [width, setWidth] = useState(window.innerWidth);
+  // стейт максимального количества карточек
+  const [limit, setLimit] = useState(0);
+
+  // добавить больше карточек
+  const loadMore = () => {
+    setLimit((prev) => prev + getAdditional());
+  };
+
+  const getAdditional = () => {
+    if (width >= DEVICE_WIDTH.laptop) return CARDS_ADD.laptop;
+    if (width >= DEVICE_WIDTH.tablet) return CARDS_ADD.tablet;
+    if (width >= DEVICE_WIDTH.phone) return CARDS_ADD.phone;
+  };
+
+  const getLimit = () => {
+    if (width >= DEVICE_WIDTH.laptop) return CARDS_DEFAULT.laptop;
+    if (width >= DEVICE_WIDTH.tablet) return CARDS_DEFAULT.tablet;
+    if (width >= DEVICE_WIDTH.miniTablet) return CARDS_DEFAULT.miniTablet;
+    if (width >= DEVICE_WIDTH.phone) return CARDS_DEFAULT.phone;
+  };
+
+  // хук управления стейтом ширины
+
+  useEffect(() => {
+    if (location.pathname === '/movies') {
+      const handleResize = () => setWidth(window.innerWidth);
+      window.addEventListener('resize', handleResize);
+      setLimit(getLimit());
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    } else {
+      setLimit(filteredMovies.length);
+    }
+  }, [window.innerWidth]);
+
+  useEffect(() => {
+    if (location.pathname === '/movies') {
+      setLimit(getLimit());
+    }
+  }, [filteredMovies]);
+
   return (
-    <div className="movies-card-list">
-      <div className="movies-card-list__container">
-        <MoviesCard
-          img={coverPic0}
-          title={'33 слова о дизайне'}
-          duration={'1ч42м'}
-        />
-        <MoviesCard
-          img={coverPic1}
-          title={'33 слова о дизайне'}
-          duration={'1ч42м'}
-        />
-        <MoviesCard
-          img={coverPic2}
-          title={'33 слова о дизайне'}
-          duration={'1ч42м'}
-        />
-        <MoviesCard
-          img={coverPic3}
-          title={'33 слова о дизайне'}
-          duration={'1ч42м'}
-        />
-        <MoviesCard
-          img={coverPic4}
-          title={'33 слова о дизайне'}
-          duration={'1ч42м'}
-        />
-        <MoviesCard
-          img={coverPic5}
-          title={'33 слова о дизайне'}
-          duration={'1ч42м'}
-        />
-        <MoviesCard
-          img={coverPic6}
-          title={'33 слова о дизайне'}
-          duration={'1ч42м'}
-        />
-        <MoviesCard
-          img={coverPic7}
-          title={'33 слова о дизайне'}
-          duration={'1ч42м'}
-        />
-        <MoviesCard
-          img={coverPic8}
-          title={'33 слова о дизайне'}
-          duration={'1ч42м'}
-        />
-        <MoviesCard
-          img={coverPic9}
-          title={'33 слова о дизайне'}
-          duration={'1ч42м'}
-        />
-        <MoviesCard
-          img={coverPic10}
-          title={'33 слова о дизайне'}
-          duration={'1ч42м'}
-        />
-        <MoviesCard
-          img={coverPic11}
-          title={'33 слова о дизайне'}
-          duration={'1ч42м'}
-        />
-        <MoviesCard
-          img={coverPic12}
-          title={'33 слова о дизайне'}
-          duration={'1ч42м'}
-        />
-        <MoviesCard
-          img={coverPic13}
-          title={'33 слова о дизайне'}
-          duration={'1ч42м'}
-        />
-        <MoviesCard
-          img={coverPic14}
-          title={'33 слова о дизайне'}
-          duration={'1ч42м'}
-        />
-        <MoviesCard
-          img={coverPic15}
-          title={'33 слова о дизайне'}
-          duration={'1ч42м'}
-        />
+    <div className='movies-card-list'>
+      <div className='movies-card-list__container'>
+        {renderedMovies.slice(0, limit).map((item) => (
+          <MoviesCard
+            movie={item}
+            key={item.id || item._id}
+            onSaveMovie={onSaveMovie}
+            onDeleteMovie={onDeleteMovie}
+            savedMoviesNames={savedMoviesNames}
+            savedMovies={savedMovies}
+          />
+        ))}
       </div>
-      <button className="movies-card-list__button">Еще</button>
+      {location.pathname === '/movies' ? (
+        <button
+          onClick={loadMore}
+          className='movies-card-list__button'
+          style={{
+            visibility: limit < renderedMovies.length ? 'visible' : 'hidden',
+          }}
+        >
+          Еще
+        </button>
+      ) : (
+        ''
+      )}
     </div>
   );
 }

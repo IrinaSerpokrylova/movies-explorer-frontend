@@ -2,11 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../Logo/Logo';
 
-// в целом понятно, что этот блок должен реализовывать навигацию по main
-// но в макете кнопки навигации, можно сказать, отсутствуют
-// поэтому из этого блока сделана часть с навигацией без авторизации
-// все равно, кроме как в main такой блок нигде не будет видно (без авторизации)
-
 function NavTab() {
   return (
     <section className="navtab">

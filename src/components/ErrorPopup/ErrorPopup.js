@@ -1,17 +1,33 @@
-import React from 'react';
+import { ERRORS, INVALID_STATUSES, SUCCESS_STATUSES } from '../../utils/const';
 
-// попап для отображения ошибок, с кнопкой закрытия + 
-// реализовать автоскрытие после n секунд отображения
-// на этапе "оживления" проекта
+function ErrorPopup({ statusCode, onClose, opened, statusInfo }) {
+  const handleMesage = () => {
+    if (statusCode === 400) {
+      return INVALID_STATUSES[statusInfo];
+    } else if (statusCode === 200) {
+      return SUCCESS_STATUSES[statusInfo];
+    } else {
+      return ERRORS[statusCode];
+    }
+  };
 
-function ErrorPopup({ errorMessage }) {
   return (
-    <div className="error-popup">
-      <div className="error-popup__container">
-        <h2 className="error-popup__message">{errorMessage}</h2>
-        <div className="error-popup__tools">
-          <button type="button" className="error-popup__close-button"></button>
-          <div className="error-popup__sign">!</div>
+    <div className={`error-popup ${opened ? 'error-popup_opened' : ''}`}>
+      <div className='error-popup__container'>
+        <h2 className='error-popup__message'>{handleMesage()}</h2>
+        <div className='error-popup__tools'>
+          <button
+            type='button'
+            className='error-popup__close-button'
+            onClick={onClose}
+          ></button>
+          <div
+            className={`error-popup__sign ${
+              statusCode === 200 ? 'error-popup__sign_type_success' : ''
+            }`}
+          >
+            {statusCode === 200 ? '' : '!'}
+          </div>
         </div>
       </div>
     </div>
